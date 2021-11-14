@@ -9,7 +9,37 @@
 </head>
 <body>
     <div class="container">
-        <img style="max-width:100%;overflow:hidden;" src="./resources/cherry-background.jpg">
+        <div class="time">
+
+                <div class="date">
+                    <span class="time-num"></span>
+    
+                    <span class="timer-sep">.</span>
+    
+                    <span class="time-num"></span>
+                    
+                    <span class="timer-sep">.</span>
+                    
+                    <span class="time-num"></span>
+    
+                    <span class="timer-sep">.</span>
+    
+                    <span class="time-num"></span>
+                </div>
+    
+                <div class="time">
+                    <span class="time-num"></span>
+                    
+                    <span class="time-sep">:</span>
+                    
+                    <span class="time-num"></span>
+    
+                    <span class="time-sep">:</span>
+                    
+                    <span class="time-num"></span>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
@@ -17,7 +47,10 @@
     body{
         margin: 0;
         padding: 0;
-
+        background: url("resources/cherry-background.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+		-o-background-size: cover;                
+		background-size: cover;
     }
 
     img{
@@ -31,22 +64,74 @@
 </style>
 
 <script>
-    function update(){
-        setInterval(get_array, 1000)
-    }
+    (function(window, document){
 
-    const personData = function(json){
-        console.log(json)
-        console.log(json.data.follower)
-    }
+        //取得dom对象
+        let year = document.getElementsByClassName("year");
 
-    const get_array = function(){
-        const url = "https://jsonp.afeld.me/?callback=personData&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350"        
-        console.log(url)
-    }
+        //时间更新
+        setInterval(timeUpdate, 400);
+
+        //取得时间
+        function timeUpdate(){
+            let timeArr = timeHandler(new Date());
+            console.log(timeArr);
+
+            //导入html
+            timeDom = document.querySelectorAll('.time-num');
+            timeDom.forEach(function(element, index){
+                element.innerHTML = timeArr[index]});
+            
+        }
+
+
+        function timeHandler(dateObj){
+            let year = dateObj.getFullYear();
+            let month = dateObj.getMonth() + 1;
+            let date = dateObj.getDate();
+            let dayNum = dateObj.getDay();
+            let hrs = ('0' + dateObj.getHours()).slice(-2); //加 0 防止出现一位数
+            let min = ('0' + dateObj.getMinutes()).slice(-2); //通过slice 截取最后两位
+            let sec = ('0' + dateObj.getSeconds()).slice(-2);
+            //console.log(year, month, date, dayNum, hrs, min, sec);
+
+            let weekArr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            let day = weekArr[dayNum]
+
+
+            function show_time_format(format_switch){
+                if(format_switch == 1){
+                    hrs += 12;
+                }
+            }
+
+            let rowArr = [year, month, date, day, hrs, min, sec];
+            //console.log("rowArr", rowArr);
+            return rowArr;
+        }
+
+    ///////////////////////////////
+
+        function update(){
+            setInterval(get_array, 1000)
+        }
+
+        const personData = function(json){
+            console.log(json)
+            console.log(json.data.follower)
+        }
+
+        const get_array = function(){
+            const url = "https://jsonp.afeld.me/?callback=personData&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350"        
+            console.log(url)
+        }
     
-    //update();
-    get_array();
+        //update();
+        get_array();
+
+    })(window, document);
+
+   
 </script>
 
 </html>
