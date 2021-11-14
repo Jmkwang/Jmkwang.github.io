@@ -5,27 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大狸子切切里</title>
-    <link href="./title-icon.png" rel="icon" type="image/x-ico">
+    <link href="./resources/title-icon.png" rel="icon" type="image/x-ico">
 </head>
 <body>
-    
+    <div class="container">
+        <img style="max-width:100%;overflow:hidden;" src="./resources/cherry-background.jpg">
+    </div>
 </body>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+
+    }
+
+    img{
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+
+</style>
 
 <script>
     function update(){
-        setInterval(get_array, 500)
+        setInterval(get_array, 1000)
     }
 
-    const get_array = function(){
-        const url = "https://jsonp.afeld.me/?callback=showData&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D" + "471303350" + '&spam=' + Number(new Date)
-    }
-    
-    const showData = function(json){
+    const personData = function(json){
         console.log(json)
         console.log(json.data.follower)
     }
+
+    const get_array = function(){
+        const url = "https://jsonp.afeld.me/?callback=personData&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350"        
+        console.log(url)
+    }
     
-    update();
+    //update();
+    get_array();
 </script>
 
 </html>
