@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大狸子切切里</title>
+    <link href="./title-icon.png" rel="icon" type="image/x-ico">
+</head>
+<body>
+    
+</body>
+
+<script>
+    function update(){
+        setInterval(get_array, 500)
+    }
+
+    const get_array = function(){
+        const url = "https://jsonp.afeld.me/?callback=showData&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D" + "471303350" + '&spam=' + Number(new Date)
+    }
+    
+    const showData = function(json){
+        console.log(json)
+        console.log(json.data.follower)
+    }
+    
+    update();
+</script>
+
+</html>
