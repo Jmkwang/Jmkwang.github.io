@@ -17,10 +17,6 @@
 			</div>
 		</div>	
         
-		<!-- JavaScript Includes -->
-		<script src="./Resources/Cherry/jquery-1.11.0.min.js"></script>
-		<script src="./Resources/Cherry/moment.min.js"></script>
-		<script src="./Resources/Cherry/script.js"></script>
 </body>
 
 <style>
@@ -77,9 +73,8 @@
 
 
     #clock{
-        width:50vw;
+        width:100vw;
         height: 15vh;
-        margin: 0 25vw 0 25vw;
         margin-top:8vh;
         position:center;
     }
@@ -97,9 +92,9 @@
 
 
     #clock .display{
+        width:100%;
         text-align:center;
-        padding: 40px 20px 20px;
-        
+        padding: 40px 20px 20px 0px;
         position:relative;
         height: 54px;
     }
@@ -320,23 +315,31 @@
     @-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
 
 </style>
+
+<!-- JavaScript Includes -->
+<script src="./Resources/Cherry/jquery-1.11.0.min.js"></script>
+<script src="./Resources/Cherry/moment.min.js"></script>
+<script src="./Resources/Cherry/script.js"></script>
+
 <script type="text/javascript">
-    (function(window, document){
-
-        
-
-    })(window, document);
-
-    //https://jsonp.afeld.me/?callback=?&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350
     //Bilibili fans number
+    //https://jsonp.afeld.me/?callback=?&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350
     function show_bilibili_fans(dataArray){
         console.log(dataArray)
         //console.log(dataArray.data.card.Official.title, dataArray.data.card.fans, dataArray.data.card.name, dataArray.data.like_num)
-        document.write(dataArray.data.card.Official.title, " ",dataArray.data.card.name, " fans_num: ", dataArray.data.card.fans, " Like_num: ", dataArray.data.like_num)
+        document.write(" fans_num: ", dataArray.data.card.fans, " Like_num: ", dataArray.data.like_num)
     }
 
     setInterval(show_bilibili_fans, 120000);
 
+    function saving_data(){
+        function get_time(){
+            let timeArr = timeHandler(new Date());
+        }
+        for(var hour_count = 0; eternal < 24; hour_count++){
+            
+        }
+    }
 
 
 
