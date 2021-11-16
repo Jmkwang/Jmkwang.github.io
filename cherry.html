@@ -331,9 +331,11 @@
     //Bilibili fans number
     function show_bilibili_fans(dataArray){
         console.log(dataArray)
-        
+        console.log(dataArray.data.card.Official.title, dataArray.data.card.fans, dataArray.data.card.name, dataArray.data.like_num)
     }
-    show_bilibili_fans();
+
+    setInterval(show_bilibili_fans, 3000000);
+
 
 
 
