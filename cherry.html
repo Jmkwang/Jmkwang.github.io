@@ -122,7 +122,15 @@
     }
 
     .numbers #mid-rsv{
-        height: 15vh;
+        height: 20vh;
+    }
+
+    .fans_num{
+        align-items:center;
+    }
+
+    .likes_num{
+        align-items:center;
     }
 
     #cherry-icon{
@@ -175,8 +183,9 @@
 </style>
 
 <!-- JavaScript Includes -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="./Resources/Cherry/bilibili.js"></script>
 
-<!-- <script src="./Resources/Cherry/bilibili.js"></script>-->
 <script>
     function clock(){
         let hour = document.getElementById("hour");
@@ -187,11 +196,46 @@
         let m = new Date().getMinutes();
         let s = new Date().getSeconds();
 
-        hour.innerHTML = h;
-        mins.innerHTML = m;
-        secs.innerHTML = s;
+        hour.innerHTML = h < 10 ? '0' + h : h;
+        mins.innerHTML = m < 10 ? '0' + m : m;
+        secs.innerHTML = s < 10 ? '0' + s : s;
+
     }
     var interval = setInterval(clock, 950);
-</script>
 
+    //Bilibili fans number
+    //https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350
+    //https://api.bilibili.com/x/space/upstat?mid=471303350
+
+    
+
+    function show_bilibili_info(dataArray){
+        console.log(dataArray)
+        //console.log(dataArray.data.card.Official.title, dataArray.data.card.fans, dataArray.data.card.name, dataArray.data.like_num)
+        //document.write(" fans_num: ", dataArray.data.card.fans, " Like_num: ", dataArray.data.like_num)
+
+        let fnum = document.getElementById("fans_num");
+        let lnum = document.getElementById("likes_num");
+
+        fnum.innerHTML = dataArray.data.card.fans;
+        lnum.innerHTML = dataArray.data.like_num;
+
+    }
+
+    function show_bilibili_view(viewNum){
+        console.log(viewNum);
+    }
+    //setInterval(show_bilibili_fans, 120000);
+
+    function saving_data(){
+        function get_time(){
+            let timeArr = timeHandler(new Date());
+        }
+        for(var hour_count = 0; eternal < 24; hour_count++){
+            
+        }
+    }
+</script>
+<script src="https://jsonp.afeld.me/?callback=show_bilibili_info&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350"></Script>
+<script src="https://jsonp.afeld.me/?callback=show_bilibili_view&url=https://api.bilibili.com/x/space/upstat?mid=471303350"></Script>   
 </html>

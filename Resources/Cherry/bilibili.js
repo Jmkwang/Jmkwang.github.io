@@ -25,9 +25,20 @@
     //     }
     // }
 
-    $.get('https://jsonp.afeld.me/?url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350', function(dataOne){
-        console.log(dataOne);
-        });
-    $.get('https://jsonp.afeld.me/?url=https://api.bilibili.com/x/space/upstat?mid=471303350', function(dataTwo){
-        console.log(dataTwo);
-    });
+    // $.get('https://jsonp.afeld.me/?url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350', function(dataOne){
+    //     console.log(dataOne);
+    //     });
+    // $.get('https://jsonp.afeld.me/?url=https://api.bilibili.com/x/space/upstat?mid=471303350', function(dataTwo){
+    //     console.log(dataTwo);
+    // });
+
+    // $.ajax({
+    //     url: "https://jsonp.afeld.me/?url=https://api.bilibili.com/x/space/upstat?mid=471303350",
+    //  data:{Full:"fu"},
+    //  type: "GET",
+    //  dataType:'json',
+    //   success:function(dataThree){
+    //        $('#result').append(`<p>interval:${dataThree.interval}</p>`)
+    //       alert("22");    
+    //   }
+    // })
