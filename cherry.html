@@ -16,9 +16,9 @@
             <h2>THE TIME IS NOW</h2>
             <div id="time">
                 <div id="clock-sep"></div>
-                <div><span id="hour">00</span><span>Hours</span></div>
-                <div><span id="mins">00</span><span>minutes</span></div>
-                <div><span id="secs">00</span><span>Seconds</span></div>
+                <div><span id="hour">00</span><span id="sub-title">Hours</span></div>
+                <div><span id="mins">00</span><span id="sub-title">minutes</span></div>
+                <div><span id="secs">00</span><span id="sub-title">Seconds</span></div>
                 <div id="clock-sep"></div>
             </div>
             <div id="reserve"></div>
@@ -64,7 +64,7 @@
     #clock #time{
         display: flex;
         width:100%;
-        height:15vh;
+        height:10vh;
         justify-content:space-evenly;
     }
 
@@ -91,8 +91,11 @@
         box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
         margin: 0 2px;
     }
+
+
+
     #clock #time div span:nth-child(2){
-        height:30px;
+        height:1vh;
         font-size: 1vmin;
         letter-spacing:0.2em;
         font-weight: 500;
