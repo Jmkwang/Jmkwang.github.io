@@ -33,12 +33,14 @@
     // });
 
     // $.ajax({
-    //     url: "https://jsonp.afeld.me/?url=https://api.bilibili.com/x/space/upstat?mid=471303350",
+    //     url: "https://jsonp.afeld.me/?url=https://api.bilibili.com/x/space/upstat?mid=471303350&jsonp=jsonp",
     //  data:{Full:"fu"},
     //  type: "GET",
-    //  dataType:'json',
+    //  dataType:'jsonp',
+    //  withCredential:'true',
+    //  crossDomain:true,
     //   success:function(dataThree){
     //        $('#result').append(`<p>interval:${dataThree.interval}</p>`)
-    //       alert("22");    
+    //       console.log(dataThree);    
     //   }
     // })
