@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer"/>
+    <meta name="referrer" content="no-referrer" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>大狸子切切里</title>
     <link href="./Resources/Cherry/title-icon.png" rel="icon" type="image/x-ico">
 </head>
+
 <body>
     <div class="background">
 
@@ -21,9 +27,8 @@
                 <div><span id="secs">00</span><span>Seconds</span></div>
                 <div id="clock-sep"></div>
             </div>
-            <div id="reserve"></div>
-        </div>	
-        
+        </div>
+
         <div class="numbers">
             <div id="mid-rsv"></div>
             <div class="fans-num">
@@ -34,35 +39,42 @@
                 <img src="./Resources/Cherry/likes_num.png" id="cherry-icon">
                 <h2 id="likes_num">0000</h2>
             </div>
+            <div class="fans_change">
+                <h2 id="fans_change">0000</h2>
+            </div>
+            <div class="likes_change">
+                <h2 id="likes_change">0000</h2>
+            </div>
         </div>
 
 
     </div>
-</body>
+
 
 <style>
     @font-face {
         font-family: 'webfont';
         font-display: swap;
-        src: url('//at.alicdn.com/t/webfont_ifybwue8oxh.eot'); /* IE9*/
+        src: url('//at.alicdn.com/t/webfont_ifybwue8oxh.eot');
+        /* IE9*/
         src: url('//at.alicdn.com/t/webfont_ifybwue8oxh.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('//at.alicdn.com/t/webfont_ifybwue8oxh.woff2') format('woff2'),
-        url('//at.alicdn.com/t/webfont_ifybwue8oxh.woff') format('woff'), /* chrome、firefox */
+        url('//at.alicdn.com/t/webfont_ifybwue8oxh.woff2') format('woff2'), url('//at.alicdn.com/t/webfont_ifybwue8oxh.woff') format('woff'), /* chrome、firefox */
         url('//at.alicdn.com/t/webfont_ifybwue8oxh.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-        url('//at.alicdn.com/t/webfont_ifybwue8oxh.svg#NotoSansHans-DemiLight') format('svg'); /* iOS 4.1- */
-      }
-
-    body{
+        url('//at.alicdn.com/t/webfont_ifybwue8oxh.svg#NotoSansHans-DemiLight') format('svg');
+        /* iOS 4.1- */
+    }
+    
+    body {
         margin: 0;
         padding: 0;
         background: url("./Resources/Cherry/cherry-background.jpg") no-repeat center center fixed;
         -webkit-background-size: cover;
-		-o-background-size: cover;                
-		background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
         z-index: 1;
     }
-
-    .background{
+    
+    .background {
         position: absolute;
         height: 100vh;
         width: 100vw;
@@ -70,127 +82,113 @@
         padding: 0;
     }
 
-    #reserve{
-        height:20vh;
-}
+    #clock{
+        height: 30vh;
+    }
 
-    #clock h2{
+    #clock h2 {
         position: center;
         display: block;
-        color:rgb(0, 0, 0);
-        text-align:center;
-        margin:2vh 0 0 0;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        margin: 2vh 0 0 0;
         font-weight: 700;
-        letter-spacing:0.4em;
+        letter-spacing: 0.4em;
         font-size: 1.5vmax;
     }
-
-    #clock #time #clock-sep{
-        width:40vw;
-        height:10vh;
+    
+    #clock #time #clock-sep {
+        width: 40vw;
+        height: 20vh;
     }
-
-    #clock #time{
+    
+    #clock #time {
         display: flex;
-        width:100%;
-        height:10vh;
-        justify-content:space-evenly;
+        width: 100%;
+        height: 10vh;
+        justify-content: space-evenly;
     }
-
-    #clock #time div{
-        position:relative;
+    
+    #clock #time div {
+        position: relative;
         margin-top: 2vh;
     }
-
-    #clock #time div span{
-        position:relative;
+    
+    #clock #time div span {
+        position: relative;
         display: block;
-        width:17vmin;
-        height:12vmin;
-        background-color:#8e5c41;
-        color:#fff;
-        font-weight:300;
+        width: 17vmin;
+        height: 12vmin;
+        background-color: #8e5c41;
+        color: #fff;
+        font-weight: 300;
         display: flex;
-        justify-content:center;
-        align-items:center;
-        font-size: 4vmin;
-        z-index:10;
-        box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+        justify-content: center;
+        align-items: center;
+        font-size: 8vmin;
+        z-index: 10;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
         margin: 0 2px;
     }
     
-    #clock #time div span:nth-child(2){
-        height:1vh;
+    #clock #time div span:nth-child(2) {
+        height: 1.7vh;
         font-size: 1vmin;
-        letter-spacing:0.2em;
-        font-weight: 500;
+        letter-spacing: 0.3em;
+        font-weight: 700;
         z-index: 9;
-        box-shadow:none;
-        background-color:#8e5c41;
+        box-shadow: none;
+        background-color: #8e5c41;
         text-transform: uppercase;
     }
-
-    #clock #time div:nth-child(4) span{
+    
+    #clock #time div:nth-child(4) span {
         background-color: #febc32;
     }
-
-    #clock #time div:nth-child(4) span:nth-child(3){
+    
+    #clock #time div:nth-child(4) span:nth-child(3) {
         background-color: #febc32;
     }
-
-    .numbers{
-        display: flex;
-        flex-direction:column;
-        height:50vh;
-        align-items:center;
+    
+    .numbers {
+        display: block;
+        flex-direction: column;
+        height: auto;
+        align-items: left;
         font-size: 1vmax;
+        margin-left: 3vw;
     }
-
-    .numbers img{
+    
+    .numbers img {
         width: 5vmax;
         height: 5vmax;
     }
-
-    .numbers #mid-rsv{
+    
+    .numbers #mid-rsv {
         height: 20vh;
+        display:block;
     }
-
-    .fans_num{
-        align-items:center;
+    
+    .fans_num {
+        align-items: center;
     }
-
-    .likes_num{
-        align-items:center;
+    
+    .likes_num {
+        align-items: center;
     }
-
-    #cherry-icon{
-        width:5vmax;
-        height:5vmax;
+    
+    #cherry-icon {
+        width: 5vmax;
+        height: 5vmax;
     }
-
-
-
-
-    /* ----------------------------------------------
-    * Generated by Animista on 2021-11-17 0:43:33
-    * Licensed under FreeBSD License.
-    * See http://animista.net/license for more info. 
-    * w: http://animista.net, t: @cssanimista
-    * ---------------------------------------------- */
-
-    /* .time_style{-webkit-animation:text-focus-in .75s linear;animation:text-focus-in .75s linear}
-
-    @-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
-    */
-
 </style>
 
 <!-- Source -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="./Resources/Cherry/bilibili.js"></script>
+
 
 <script>
-    function clock(clock_h,clock_m,clock_s){
+    function clock(clock_h, clock_m, clock_s) {
         let clock_hour = document.getElementById("hour");
         let clock_mins = document.getElementById("mins");
         let clock_secs = document.getElementById("secs");
@@ -201,47 +199,100 @@
 
     }
 
-    function get_time(){
-        var myDate=new Date();
+    function get_time() {
+        var myDate = new Date();
 
-        var hours=myDate.getHours();//获取小时
-        
-        var minutes=myDate.getMinutes();//获取分钟
-        
-        var seconds=myDate.getSeconds();//获取秒
+        var hours = myDate.getHours(); //获取小时
 
-        clock(hours, minutes, seconds);//调用clock
+        var minutes = myDate.getMinutes(); //获取分钟
+
+        var seconds = myDate.getSeconds(); //获取秒
+
+        clock(hours, minutes, seconds); //调用clock
+
+        //document.write("<script src='>");
+
 
     }
 
-    var interval = setInterval(get_time, 900);
-    
+    var interval = setInterval(get_time, 1000);
 
-//Bilibili fans number
+
+    //Bilibili fans number
     //https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350
     //https://api.bilibili.com/x/space/upstat?mid=471303350
 
+    //get html element
+    var fnum = document.getElementById("fans_num");
+    var lnum = document.getElementById("likes_num");
+    var fchange = document.getElementById("fans_change");
+    var lchange = document.getElementById("likes_change");
+    let fansArr = [];
+    let likesArr = [];
 
-
-    function show_bilibili_info(dataArray){
+    //get fans & likes number
+    function show_bilibili_info(dataArray) {
         console.log(dataArray)
-        //console.log(dataArray.data.card.Official.title, dataArray.data.card.fans, dataArray.data.card.name, dataArray.data.like_num)
+            //console.log(dataArray.data.card.Official.title, dataArray.data.card.fans, dataArray.data.card.name, dataArray.data.like_num)
 
-        let fnum = document.getElementById("fans_num");
-        let lnum = document.getElementById("likes_num");
-
-        fnum.innerHTML = dataArray.data.card.fans;
+        fnum.innerHTML = dataArray.data.follower;
         lnum.innerHTML = dataArray.data.like_num;
 
+        saving_data(dataArray.data.follower, dataArray.data.like_num)
     }
 
+    //fetch url
+    var cb;
+    const fetch_info = function(){
+        let url="https://jsonp.afeld.me/?callback=show_bilibili_info&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350" + '&spam=' + Number(new Date)
+        cb = document.createElement('script')
+        cb.setAttribute('src', url)
+        fnum.appendChild(cb)
+    }
 
+    //event listen
+    window.addEventListener('message', function(f5) {
+      if(f5.data === 'refresh') {
+        fetch_info();
+      }
+    }, false);
 
-    function saving_data(){
-        
-        for(var hour_count = 0; eternal < 24; hour_count++){
-            
+    const duration = 120; /* 60s */
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = 'data:text/html,%3C%21DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%09%3Cmeta%20charset%3D%22utf-8%22%20%2F%3E%0A%09%3Cmeta%20http-equiv%3D%22refresh%22%20content%3D%22'+ duration +'%22%20id%3D%22metarefresh%22%20%2F%3E%0A%09%3Ctitle%3Ex%3C%2Ftitle%3E%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%09%3Cscript%3Etop.postMessage%28%27refresh%27%2C%20%27%2A%27%29%3B%3C%2Fscript%3E%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E';
+    document.body.insertBefore(iframe, document.body.childNodes[0]);
+
+    //push data to array
+    function saving_data(folo, likes) {
+
+        let sav_time = new Date();
+        let sav_min = sav_time.getMinutes;
+        let sav_hours = sav_time.getHours;
+        let sav_date = sav_time.getUTCDate;
+        let sav_month = sav_time.getUTCMonth;
+        let sav_time_array = sav_month + '.' + sav_date + '.' + sav_hours + '.' + sav_min + '-->';
+
+        if(folo !== fansArr[fansArr.length-1]){
+            fansArr = fansArr.push('"' + sav_time_array + folo + '"');
         }
+
+        if(likes !== likesArr[likesArr.length-1]){
+            likesArr = likesArr.push('"' + sav_time_array + likes + '"');
+        }
+
+        console.log(fansArr,likesArr);
+        for(var count_f =0; count_f < fansArr.length; count_f++){
+            fchange.innerHTML =("fans", fansArr);
+        }
+        
+        for(var count_l =0; count_l < likesArr.length; count_l++){
+            lchange.innerHTML =("likes", likesArr);
+        }
+
+
+
     }
 </script>
-<script src="https://jsonp.afeld.me/?callback=show_bilibili_info&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350"></Script>
+</body>
+</html>
