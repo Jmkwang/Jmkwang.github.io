@@ -44,3 +44,26 @@
     //       console.log(dataThree);    
     //   }
     // })
+
+    // $.ajax({  
+    //     type:"GET",  
+    //     url:"https://api.kaaass.net/biliapi/video?id=471303350&callback=show_bilibili_view",  
+    //     dataType:"jsonp",  
+    //     success: function(data){  
+
+    //     }
+    //   });
+
+    const show_bilibili_view = function(viewArray){
+        console.log(viewArray.data.list.vlist)
+    }
+    //setInterval(show_bilibili_fans, 120000);
+
+    const trying = function(){
+        for(var pnCount = 0; pnCount < 6;pnCount++){
+            const url = "https://jsonp.afeld.me/?callback=count_bilibili_view&url=https://api.bilibili.com/x/space/arc/search?mid=471303350"+"&pn="+ pnCount + "&ps="+ '100' +"&jsonp=jsonp" + Number(new Date)
+      
+        }
+        
+    }
+    trying();

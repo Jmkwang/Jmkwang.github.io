@@ -226,7 +226,6 @@
     function show_bilibili_info(dataArray){
         console.log(dataArray)
         //console.log(dataArray.data.card.Official.title, dataArray.data.card.fans, dataArray.data.card.name, dataArray.data.like_num)
-        //document.write(" fans_num: ", dataArray.data.card.fans, " Like_num: ", dataArray.data.like_num)
 
         let fnum = document.getElementById("fans_num");
         let lnum = document.getElementById("likes_num");
@@ -236,10 +235,7 @@
 
     }
 
-    function show_bilibili_view(viewNum){
-        console.log(viewNum);
-    }
-    //setInterval(show_bilibili_fans, 120000);
+
 
     function saving_data(){
         
@@ -249,5 +245,3 @@
     }
 </script>
 <script src="https://jsonp.afeld.me/?callback=show_bilibili_info&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350"></Script>
-<script src="https://jsonp.afeld.me/?callback=show_bilibili_view&url=https://api.bilibili.com/x/space/upstat?mid=471303350&jsonp=jsonp"></Script>
-</html>
