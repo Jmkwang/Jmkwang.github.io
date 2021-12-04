@@ -29,28 +29,7 @@
             </div>
         </div>
 
-        <div class="numbers">
-            <div id="mid-rsv"></div>
-            <div class="fans-num">
-                <img src="./Resources/Cherry/fans_num.png" id="cherry-icon">
-                <h2 id="fans_num">0000</h2>
-            </div>
-            <div class="likes-num">
-                <img src="./Resources/Cherry/likes_num.png" id="cherry-icon">
-                <h2 id="likes_num">0000</h2>
-            </div>
-            <div class="fans_change">
-                <h2 id="fans_change"></h2>
-            </div>
-            <div class="likes_change">
-                <h2 id="likes_change"></h2>
-            </div>
-        </div>
-
-
     </div>
-
-
 <style>
     @font-face {
         font-family: 'webfont';
@@ -149,44 +128,12 @@
     #clock #time div:nth-child(4) span:nth-child(3) {
         background-color: #febc32;
     }
-    
-    .numbers {
-        display: block;
-        flex-direction: column;
-        height: auto;
-        align-items: left;
-        font-size: 1vmax;
-        margin-left: 3vw;
-    }
-    
-    .numbers img {
-        width: 5vmax;
-        height: 5vmax;
-    }
-    
-    .numbers #mid-rsv {
-        height: 20vh;
-        display:block;
-    }
-    
-    .fans_num {
-        align-items: center;
-    }
-    
-    .likes_num {
-        align-items: center;
-    }
-    
+
     #cherry-icon {
         width: 5vmax;
         height: 5vmax;
     }
 </style>
-
-<!-- Source -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-
-
 <script>
     function clock(clock_h, clock_m, clock_s) {
         let clock_hour = document.getElementById("hour");
@@ -215,99 +162,6 @@
     }
 
     var interval = setInterval(get_time, 1000);
-
-
-    //Bilibili fans number
-    //https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350
-    //https://api.bilibili.com/x/space/upstat?mid=471303350
-
-    //get html element
-    var numberSwitch = document.getElementById("switch");
-    var numbers = document.getElementsByClassName("numbers");
-    var fshow = document.getElementsByClassName("fans-num");
-    var lshow = document.getElementsByClassName("likes-num");
-
-    var fnum = document.getElementById("fans_num");
-    var lnum = document.getElementById("likes_num");
-    var fchange = document.getElementById("fans_change");
-    var lchange = document.getElementById("likes_change");
-    let fansArr = [];
-    let likesArr = [];
-
-
-    //appear or not
-    numberSwitch.onclick = function(){
-        console.log(fshow);
-        fshow.style.display = "none";
-        lshow.style.display = "none";
-    }
-
-
-
-    //get fans & likes number
-    function show_bilibili_info(dataArray) {
-        console.log(dataArray)
-            //console.log(dataArray.data.card.Official.title, dataArray.data.card.fans, dataArray.data.card.name, dataArray.data.like_num)
-
-        fnum.innerHTML = dataArray.data.follower;
-        lnum.innerHTML = dataArray.data.like_num;
-
-        //saving_data(dataArray.data.follower, dataArray.data.like_num)
-    }
-
-    //fetch url
-    var cb;
-    const fetch_info = function(){
-        let url="https://jsonp.afeld.me/?callback=show_bilibili_info&url=https%3A%2F%2Fapi.bilibili.com%2Fx%2Fweb-interface%2Fcard%3Fmid%3D471303350" + '&spam=' + Number(new Date)
-        cb = document.createElement('script')
-        cb.setAttribute('src', url)
-        fnum.appendChild(cb)
-    }
-
-    //event listen
-    window.addEventListener('message', function(f5) {
-      if(f5.data === 'refresh') {
-        fetch_info();
-      }
-    }, false);
-
-    const duration = 120; /* 60s */
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.src = 'data:text/html,%3C%21DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%09%3Cmeta%20charset%3D%22utf-8%22%20%2F%3E%0A%09%3Cmeta%20http-equiv%3D%22refresh%22%20content%3D%22'+ duration +'%22%20id%3D%22metarefresh%22%20%2F%3E%0A%09%3Ctitle%3Ex%3C%2Ftitle%3E%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%09%3Cscript%3Etop.postMessage%28%27refresh%27%2C%20%27%2A%27%29%3B%3C%2Fscript%3E%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E';
-    document.body.insertBefore(iframe, document.body.childNodes[0]);
-
-
-    //push data to array
-    // function saving_data(folo, likes) {
-
-    //     let sav_time = new Date();
-    //     let sav_min = sav_time.getMinutes;
-    //     let sav_hours = sav_time.getHours;
-    //     let sav_date = sav_time.getUTCDate;
-    //     let sav_month = sav_time.getUTCMonth;
-    //     let sav_time_array = sav_month + '.' + sav_date + '.' + sav_hours + '.' + sav_min + '-->';
-
-    //     if(folo !== fansArr[fansArr.length-1]){
-    //         fansArr = fansArr.push('"' + sav_time_array + folo + '"');
-    //     }
-
-    //     if(likes !== likesArr[likesArr.length-1]){
-    //         likesArr = likesArr.push('"' + sav_time_array + likes + '"');
-    //     }
-
-    //     console.log(fansArr,likesArr);
-    //     for(var count_f =0; count_f < fansArr.length; count_f++){
-    //         fchange.innerHTML =("fans", fansArr);
-    //     }
-        
-    //     for(var count_l =0; count_l < likesArr.length; count_l++){
-    //         lchange.innerHTML =("likes", likesArr);
-    //     }
-
-
-
-    // }
 </script>
 </body>
 </html>
